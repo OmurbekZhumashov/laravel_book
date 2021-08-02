@@ -17,7 +17,7 @@ class Bookscontroller extends Controller
         $books = books:: paginate(4);
         return view('index', [
             'books'=>$books
-        ]);
+         ]);
     }
 
     /**

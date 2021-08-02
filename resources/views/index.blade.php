@@ -45,7 +45,9 @@
                       <th>
                           Автор
                       </th>
-                      
+                      <th>
+                          Пользователь
+                      </th>
                       
                   </tr>
               </thead>
@@ -60,6 +62,9 @@
                       </td>
                       <td>
                           {{$book['author']}}
+                      </td>
+                      <td>
+                          {{$book['users_id']}}
                       </td>
                       
                    

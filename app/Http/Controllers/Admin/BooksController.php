@@ -80,6 +80,7 @@ class BooksController extends Controller
         $new_books = new books();
         $new_books->title = $request->title;
         $new_books->author=$request->author;
+        $new_books->users_id=auth()->id();
         $new_books->save();
 
         return redirect()->back()->withSuccess('Книга было успешно добавлено');
