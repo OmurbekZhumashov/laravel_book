@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\books;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-class Bookscontroller extends Controller
+use App\Models\books;
+class BooksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,7 @@ class Bookscontroller extends Controller
      */
     public function index()
     {
-        $books = books:: paginate(10);
-        return view('index', [
-            'books'=>$books
-         ]);
+        return books::all();
     }
 
     /**
@@ -44,33 +41,33 @@ class Bookscontroller extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\books  $books
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(books $books)
+    public function show($id)
     {
-        //
+        return books::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\books  $books
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(books $books)
+    public function edit($id)
     {
-        //
+        
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\books  $books
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, books $books)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,10 +75,10 @@ class Bookscontroller extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\books  $books
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(books $books)
+    public function destroy($id)
     {
         //
     }
