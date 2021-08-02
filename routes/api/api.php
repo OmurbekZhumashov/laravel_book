@@ -15,19 +15,20 @@ use App\Http\Controllers\Api\LoginController;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-
-
-Route::prefix('/user')->group( function () {
-
-    Route::post('/login',[App\Http\Controllers\Api\LoginController::class, 'login']);
-    Route::apiResources([
-        'books' => BooksController::class,
-    ]);
-
-    
-
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
 });
+
+
+
+
+
+Route::post('/login', [LoginController::class, 'login']);
+Route::get('/login', [LoginController::class, 'login']);
+
+Route::middleware(['auth:api'])->get('/books',[BooksController::class, 'index']);
+
+
+// Route::apiResources([
+//     'books' => BooksController::class,
+// ]);
